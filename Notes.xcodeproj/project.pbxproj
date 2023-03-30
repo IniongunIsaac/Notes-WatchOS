@@ -48,6 +48,11 @@
 		55A08A0729D59F6D00896C1D /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		55A08A0929D5A24000896C1D /* CreditsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditsView.swift; sourceTree = "<group>"; };
 		55A08A0B29D5A24C00896C1D /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		55A08A1229D5ADDB00896C1D /* Credits.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Credits.png; sourceTree = "<group>"; };
+		55A08A1329D5ADDB00896C1D /* Details.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Details.png; sourceTree = "<group>"; };
+		55A08A1429D5ADDB00896C1D /* Notes.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Notes.png; sourceTree = "<group>"; };
+		55A08A1529D5ADDB00896C1D /* Settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Settings.png; sourceTree = "<group>"; };
+		55A08A1629D5AE0900896C1D /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		55C1DC5D29D4B91A0055CE00 /* Notes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Notes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		55C1DC6329D4B91A0055CE00 /* Notes Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Notes Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		55C1DC6829D4B91A0055CE00 /* NotesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesApp.swift; sourceTree = "<group>"; };
@@ -68,9 +73,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		55A08A0D29D5AD4D00896C1D /* Screenshots */ = {
+			isa = PBXGroup;
+			children = (
+				55A08A1229D5ADDB00896C1D /* Credits.png */,
+				55A08A1329D5ADDB00896C1D /* Details.png */,
+				55A08A1429D5ADDB00896C1D /* Notes.png */,
+				55A08A1529D5ADDB00896C1D /* Settings.png */,
+			);
+			path = Screenshots;
+			sourceTree = "<group>";
+		};
 		55C1DC5629D4B91A0055CE00 = {
 			isa = PBXGroup;
 			children = (
+				55A08A1629D5AE0900896C1D /* README.md */,
+				55A08A0D29D5AD4D00896C1D /* Screenshots */,
 				55C1DC6729D4B91A0055CE00 /* Notes Watch App */,
 				55C1DC5E29D4B91A0055CE00 /* Products */,
 			);
