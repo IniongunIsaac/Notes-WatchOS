@@ -40,9 +40,9 @@ struct DetailView: View {
                     .onTapGesture {
                         isSettingsPresented.toggle()
                     }
-//                    .sheet(isPresented: $isSettingsPresented, content: {
-//                        SettingsView()
-//                    })
+                    .sheet(isPresented: $isSettingsPresented, content: {
+                        SettingsView()
+                    })
                 
                 Spacer()
                 
@@ -55,9 +55,9 @@ struct DetailView: View {
                     .onTapGesture {
                         isCreditsPresented.toggle()
                     }
-//                    .sheet(isPresented: $isCreditsPresented, content: {
-//                        CreditsView()
-//                    })
+                    .sheet(isPresented: $isCreditsPresented, content: {
+                        CreditsView()
+                    })
             } //: HSTACK
             .foregroundColor(.secondary)
             
