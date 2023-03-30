@@ -14,56 +14,60 @@ struct ContentView: View {
     @AppStorage("lineCount") var lineCount: Int = 1
     
     var body: some View {
-        VStack {
-            HStack(alignment: .center, spacing: 6) {
-                TextField("Add New Note", text: $text)
+        NavigationView {
+            VStack {
+                HStack(alignment: .center, spacing: 6) {
+                    TextField("Add New Note", text: $text)
+                    
+                    Button {
+                        guard !text.isEmpty else { return }
+                        let note = Note(id: UUID(), text: text)
+                        notes.append(note)
+                        text = ""
+                        save()
+                    } label: {
+                        Image(systemName: "plus.circle")
+                            .font(.system(size: 42, weight: .semibold))
+                    }
+                    .fixedSize()
+                    .buttonStyle(.plain)
+                    .foregroundColor(.accentColor)
+                }
                 
-                Button {
-                    guard !text.isEmpty else { return }
-                    let note = Note(id: UUID(), text: text)
-                    notes.append(note)
-                    text = ""
-                    save()
-                } label: {
-                    Image(systemName: "plus.circle")
-                        .font(.system(size: 42, weight: .semibold))
-                }
-                .fixedSize()
-                .buttonStyle(.plain)
-                .foregroundColor(.accentColor)
+                Spacer()
+                
+                if !notes.isEmpty {
+                    List {
+                        ForEach(0..<notes.count, id: \.self) { i in
+                            NavigationLink(destination: DetailView(note: notes[i], count: notes.count, index: i)) {
+                                HStack {
+                                    Capsule()
+                                        .frame(width: 4)
+                                        .foregroundColor(.accentColor)
+                                    Text(notes[i].text)
+                                        .lineLimit(lineCount)
+                                        .padding(.leading, 5)
+                                } //: HStack
+                            } //: NavigationLink
+                        } //: ForEach
+                        .onDelete(perform: delete)
+                    }
+                } else {
+                    Spacer()
+                    Image(systemName: "note.text")
+                        .resizable()
+                        .scaledToFit()
+                        .foregroundColor(.gray)
+                        .opacity(0.25)
+                        .padding(25)
+                    Spacer()
+                } //: List
+            } //: VStack
+            .navigationTitle("Notes")
+            .onAppear {
+                load()
             }
-            
-            Spacer()
-            
-            if !notes.isEmpty {
-                List {
-                    ForEach(0..<notes.count, id: \.self) { i in
-                        HStack {
-                            Capsule()
-                                .frame(width: 4)
-                                .foregroundColor(.accentColor)
-                            Text(notes[i].text)
-                                .lineLimit(lineCount)
-                                .padding(.leading, 5)
-                        }
-                    } //: ForEach
-                    .onDelete(perform: delete)
-                }
-            } else {
-                Spacer()
-                Image(systemName: "note.text")
-                    .resizable()
-                    .scaledToFit()
-                    .foregroundColor(.gray)
-                    .opacity(0.25)
-                    .padding(25)
-                Spacer()
-            } //: List
-        } //: VStack
-        .navigationTitle("Notes")
-        .onAppear {
-            load()
-        }
+        } //: NavigationView
     }
     
     func getDocumentDirectory() -> URL {
